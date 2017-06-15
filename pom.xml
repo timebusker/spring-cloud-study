@@ -174,4 +174,9 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
+
+	<modules>
+		<module>spring-cloud-study-1-1</module>
+	</modules>
 </project>
