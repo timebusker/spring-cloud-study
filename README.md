@@ -1,12 +1,62 @@
-# Spring-Cloud
+- ### 关于微服务架构
+“微服务 ”一词源于 Martin Fowler 的名为 Microservices 的博文， 可以在他的官方博客
+上找到：[Microservices](http://mar巨nfowler.com/articles/microservices.html)。<br><br/> 
+简单地说， 微服务是系统架构上的一种设计风格， 它的主旨是将一个原本独立的系统
+拆分成多个小型服务，这些小型服务都在各自独立的进程中运行，服务之间通过基于HTTP
+的RESTful API进行通信协作。 被拆分成的每一个小型服务都围绕着系统中的某一项或一
+些耦合度较高的业务功能进行构建， 并且每个服务都维护着自身的数据存储、 业务开发、
+自动化测试案例以及独立部署机制。 **由于有了轻量级的通信协作基础， 所以这些微服务
+可以使用不同的语言来编写。**
+
+- ### 单体架构
+在传统的企业系统架构中，针对一个复杂的业务需求通常使用对象或业务类型来构建一
+个单体项目。在项目中将需求分为三个主要部分：**数据库、服务端处理、前端展现**。在业务
+发展初期，由于所有的业务逻辑在一个应用中，开发、测试、部署都还比较容易且方便。但
+是，随着企业的发展，系统为了应对不同的业务需求会不断为该单体项目增加不同的业务模
+块；同时随着移动端设备的进步，前端展现模块已经不仅仅局限于Web的形式，这对于系统后
+端向前端的支持需要更多的接口模块。单体应用由于面对的业务需求更为宽泛，不断扩大的需
+求会使得单体应用变得越来越腕肿。单体应用的问题就逐渐凸显出来，由于单体系统部署在一
+个进程内，往往我们修改了一个很小的功能，为了部署上线会影响其他功能的运行。并且，单体
+应用中的这些功能模块的使用场景、并发量、消耗的资源类型都各有不同，对于资源的利用又互
+相影响，这样使得我们对各个业务模块的系统容量很难给出较为准确的评估。所以，单体系统在
+初期虽然可以非常方便地进行开发和使用， 但是随着系统的发展，维护成本会变得越来越大，
+且难以控制。<br><br/> 
+为了解决单体系统变得庞大脯肿之后产生的难以维护的问题，微服务架构诞生了并被我们将
+系统中的不同功能模块拆分成多个不同的服务，这些服务都能够独立部署和扩展。由于每个服务
+都运行在自己的进程内，在部署上有稳固的边界，这样每个服务的更新都不会影响其他服务的运行。
+同时，由于是独立部署的，我们可以更准确地为每个服务评估性能容量，通过配合服务间的协作流
+程也可以更容易地发现系统的瓶颈位置，以及给出较为准确的系统级性能容量评估。
+
+- ### 架构演进
+
+- ### 实施微服务
+  + #### 单体应用的缺点：
+         复杂性逐渐变高、技术债务逐渐上升、部署速度逐渐变慢、阻碍技术创新、无法按需伸缩
+  + #### 微服应用的优点：
+         
+  + #### 微服应用的缺点：
+         
+- ### 从单体应用到微服务
+  + 横向拆分策略：
+
+![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/单体应用架构.png?raw=true) 
+
+  + 纵向拆分策略： 
+
+![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/单体应用架构.png?raw=true)
+
+
+- ### Spring Cloud简介
+
+Spring Cloud是一个基于Spring Boot实现的云应用开发工具，它为基于JVM的云应用开发中的配置管理、服务发现、
+断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等操作提供了一种简单的开发方式。
+
+
+
+
+
 ![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/1.png?raw=true)
-![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/2.png?raw=true)
-![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/3.png?raw=true)
-![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/4.png?raw=true)
-![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/5.png?raw=true)
-![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/6.png?raw=true)
-![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/7.png?raw=true)
-![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/8.png?raw=true)
+
 
 #### 模块列表
 ----
