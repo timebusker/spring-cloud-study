@@ -113,6 +113,9 @@ Dubbo（服务治理）、Disconf(分布式配置管理)、Elastic-Job（批量�
   - spring boot 1.5.3.RELEASE
   - spring cloud Dalston.SR1
 
+- ### [Spring Cloud 参数配置](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud参数配置.md)
+
+
 #### 模块列表
 ----
 #### [spring-cloud-study-1-1 Spring-Cloud 入门实践](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-1-1/)
