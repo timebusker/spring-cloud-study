@@ -1,7 +1,7 @@
 - ### 关于微服务架构
-“微服务 ”一词源于 Martin Fowler 的名为 Microservices 的博文， 可以在他的官方博客
-上找到：[Microservices](http://mar巨nfowler.com/articles/microservices.html)。<br><br/> 
-简单地说， 微服务是系统架构上的一种设计风格， 它的主旨是将一个原本独立的系统
+   + “微服务 ”一词源于 Martin Fowler 的名为 Microservices 的博文， 可以在他的官方博客
+上找到：[Microservices](http://mar巨nfowler.com/articles/microservices.html)。
+   + 简单地说， 微服务是系统架构上的一种设计风格， 它的主旨是将一个原本独立的系统
 拆分成多个小型服务，这些小型服务都在各自独立的进程中运行，服务之间通过基于HTTP
 的RESTful API进行通信协作。 被拆分成的每一个小型服务都围绕着系统中的某一项或一
 些耦合度较高的业务功能进行构建， 并且每个服务都维护着自身的数据存储、 业务开发、
@@ -9,7 +9,7 @@
 可以使用不同的语言来编写。**
 
 - ### 单体架构
-在传统的企业系统架构中，针对一个复杂的业务需求通常使用对象或业务类型来构建一
+   + 在传统的企业系统架构中，针对一个复杂的业务需求通常使用对象或业务类型来构建一
 个单体项目。在项目中将需求分为三个主要部分：**数据库、服务端处理、前端展现**。在业务
 发展初期，由于所有的业务逻辑在一个应用中，开发、测试、部署都还比较容易且方便。但
 是，随着企业的发展，系统为了应对不同的业务需求会不断为该单体项目增加不同的业务模
@@ -20,8 +20,8 @@
 应用中的这些功能模块的使用场景、并发量、消耗的资源类型都各有不同，对于资源的利用又互
 相影响，这样使得我们对各个业务模块的系统容量很难给出较为准确的评估。所以，单体系统在
 初期虽然可以非常方便地进行开发和使用， 但是随着系统的发展，维护成本会变得越来越大，
-且难以控制。<br><br/> 
-为了解决单体系统变得庞大脯肿之后产生的难以维护的问题，微服务架构诞生了并被我们将
+且难以控制。
+   + 为了解决单体系统变得庞大脯肿之后产生的难以维护的问题，微服务架构诞生了并被我们将
 系统中的不同功能模块拆分成多个不同的服务，这些服务都能够独立部署和扩展。由于每个服务
 都运行在自己的进程内，在部署上有稳固的边界，这样每个服务的更新都不会影响其他服务的运行。
 同时，由于是独立部署的，我们可以更准确地为每个服务评估性能容量，通过配合服务间的协作流
@@ -76,32 +76,31 @@ Dubbo（服务治理）、Disconf(分布式配置管理)、Elastic-Job（批量�
      - 按照不同的业务域进行拆分，例如订单、商品、权限、用户等，形成独立的业务领域微服务集群。
 ![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/服务垂直拆分转型.png?raw=true)
 
-
 - ### Spring Cloud简介
    + Spring Cloud是 一个基千Spring Boot实现的微服务架构开发 工具。 它为微服务架构中
 涉及的 配置管理、 服务治理、 断路器、 智能路由、 微代理、 控制总线、 全局锁、 决策竞选、
 分布式会话和集群状态管理等操作提供了 一种简单的开发方式。
    + Spring Cloud包含了多个子项目（针对分布式系统中涉及的多个不同开源产品，还可能会新增）， 如下所述：
-     - Spring Cloud Config：配置管理工具， 支持使用Git存储 配置内容， 可以使用它实现应用配置的外部化存储，
+     - **Spring Cloud Config**：配置管理工具， 支持使用Git存储 配置内容， 可以使用它实现应用配置的外部化存储，
 并支持客户端配置信息刷新、加密／解密配置内容等。
-     - Spring Cloud Netflix： 核心组件，对多个Netflix OSS开源套件进行整合
-         * Eureka：服务治理组件，包含服务注册中心、服务注册与发现机制的实现
-         * Hystrix：容错管理组件，实现断路器模式，帮助服务依赖中出现的延迟和为故障提供强大的容错能力。
-         * Ribbon:客户端负载均衡的服务调用组件
-         * Feign:基于 Ribbon 和 Hystrix 的声明式服务调用组件
-         * Zuul:网关组件，提供智能路由、访问过滤等功能
-         * Archaius:外部化配置组件
-     - Spring Cloud Bus：事件、消息总线，用于传播集群中的状态变化或事件，以触发后续的处理，比如用来动态刷新配置等
-     - Spring Cloud Cluster：针对 ZooKeeper、Redis、Hazelcast、Consul 的选举算法和通用状态模式的实现
-     - Spring Cloud Cloudfoundry：与 Pivotal Cloudfoundry 的整合支持
-     - Spring Cloud Consul：服务发现与配置管理工具
-     - Spring Cloud Stream：通过 Redis、Rabbit、Kafka 实现的消费微服务，可以通过简单的声明式模型来发送和接收消息。
-     - Spring Cloud AWS：用千简化整合 Amazon Web Service 的组件
-     - Spring Cloud Security：安全工具包，提供在 Zuul 代理中对 OAuth2.0 客户端请求的中继器。
-     - Spring Cloud Sleuth：Spring Cloud 应用的分布式跟踪实现， 可以完美整合 Zipkin
-     - Spring Cloud ZooKeeper：基于 ZooKeeper 的服务发现与配置管理组件
-     - Spring Cloud Starters：Spring Cloud 的基础组件，它是基于 Spring Boot 风格项目的基础依赖模块。
-     - Spring Cloud CLI：用于在Groovy中快速创建 Spring Cloud 应用的 Spring Boot CLI 插件
+     - **Spring Cloud Netflix**： 核心组件，对多个Netflix OSS开源套件进行整合
+         * ***Eureka***：服务治理组件，包含服务注册中心、服务注册与发现机制的实现
+         * ***Hystrix***：容错管理组件，实现断路器模式，帮助服务依赖中出现的延迟和为故障提供强大的容错能力。
+         * ***Ribbon***:客户端负载均衡的服务调用组件
+         * ***Feign***:基于 Ribbon 和 Hystrix 的声明式服务调用组件
+         * ***Zuul***:网关组件，提供智能路由、访问过滤等功能
+         * ***Archaius***:外部化配置组件
+     - **Spring Cloud Bus**：事件、消息总线，用于传播集群中的状态变化或事件，以触发后续的处理，比如用来动态刷新配置等
+     - **Spring Cloud Cluster**：针对 ZooKeeper、Redis、Hazelcast、Consul 的选举算法和通用状态模式的实现
+     - **Spring Cloud Cloudfoundry**：与 Pivotal Cloudfoundry 的整合支持
+     - **Spring Cloud Consul**：服务发现与配置管理工具
+     - **Spring Cloud Stream**：通过 Redis、Rabbit、Kafka 实现的消费微服务，可以通过简单的声明式模型来发送和接收消息。
+     - **Spring Cloud AWS**：用千简化整合 Amazon Web Service 的组件
+     - **Spring Cloud Security**：安全工具包，提供在 Zuul 代理中对 OAuth2.0 客户端请求的中继器。
+     - **Spring Cloud Sleuth**：Spring Cloud 应用的分布式跟踪实现， 可以完美整合 Zipkin
+     - **Spring Cloud ZooKeeper**：基于 ZooKeeper 的服务发现与配置管理组件
+     - **Spring Cloud Starters**：Spring Cloud 的基础组件，它是基于 Spring Boot 风格项目的基础依赖模块。
+     - **Spring Cloud CLI**：用于在Groovy中快速创建 Spring Cloud 应用的 Spring Boot CLI 插件
 
 
 #### 模块列表
