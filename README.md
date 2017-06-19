@@ -104,6 +104,14 @@ Dubbo（服务治理）、Disconf(分布式配置管理)、Elastic-Job（批量�
      - **Spring Cloud Starters**：Spring Cloud 的基础组件，它是基于 Spring Boot 风格项目的基础依赖模块。
      - **Spring Cloud CLI**：用于在Groovy中快速创建 Spring Cloud 应用的 Spring Boot CLI 插件
 
+- ### 项目开发环境
+  - JDK1.8
+  - Maven 3.3.9
+  - Eclipse
+  - undertow
+  - slf4j + logback
+  - spring boot 1.5.3.RELEASE
+  - spring cloud Dalston.SR1
 
 #### 模块列表
 ----
