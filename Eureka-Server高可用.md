@@ -23,13 +23,13 @@
         ![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/eureka高可用.png?)
 
 - ### [注意](#)
-   - EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN   THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE;
-     是由于Eureka进入了保护模式,在保护模式下，Eureka Server将会尝试保护其服务注册表中的信息，暂时不会注销服务注册表中的服务。   
+   - EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN   THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE;  
+     是由于Eureka进入了保护模式,在保护模式下，Eureka Server将会尝试保护其服务注册表中的信息，暂时不会注销服务注册表中的服务。     
      ```
      eureka.server.enable-self-preservation=false
      ```
 
-   - 多Eureka Server节点时，服务节点一直处于不可用的服务分片（unavailable-replicas）节点上；
+   - 多Eureka Server节点时，服务节点一直处于不可用的服务分片（unavailable-replicas）节点上；  
      ```
      eureka.instance.prefer-ip-address=true  
      eureka.instance.preferIpAddress=true  
