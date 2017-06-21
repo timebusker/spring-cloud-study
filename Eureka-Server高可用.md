@@ -12,16 +12,17 @@
    + 深入理解 Eureka 
       - Eureka Server的同步遵循着一个非常简单的原则：**只要有一条边将节点连接，就可以进行信息传播与同步**。  
         在[搭建双节点注册中心](#)中，我们便是以eureka server 1和eureka server 2两两相互连接实现了 Eureka Server 沿着节点进行信息传播与同步。
-      - Eureka Server具备**单向**的服务传播与同步机制，在一些对服务发现有限制的情况下，可以利用这样的机制进行服务注册与发现的单向控制。
+      - Eureka Server具备**单向的服务传播与同步机制**，在一些对服务发现有限制的情况下，可以利用这样的机制进行服务注册与发现的单向控制。
         为了验证Eureka Server的单向信息同步机制，我们将[搭建双节点注册中心](#)中的eureka server2 不指向eureka server 1进行测试。  
         ![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/eureka双机-single.png?raw=true)  
         ![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/81-single.png?raw=true)    
         ![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/82-single.png?raw=true)  
   
-      - **两两注册**的方式可以实现集群中节点完全对等的效果，实现**最高可用性集群**，任何一台注册中心故障都不会影响服务的注册与发现  
+
+      - **两两注册**的方式可以实现集群中节点完全对等的效果，实现**最高可用性集群**，任何一台注册中心故障都不会影响服务的注册与发现。高可用设计示例：  
         ![image](https://github.com/timebusker/spring-cloud-study/raw/master/static/0/eureka高可用.png?)
 
-- ### [注](#)
+- ### [注意](#)
    - EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN   THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE;
      是由于Eureka进入了保护模式,在保护模式下，Eureka Server将会尝试保护其服务注册表中的信息，暂时不会注销服务注册表中的服务。   
      ```
