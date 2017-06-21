@@ -43,7 +43,7 @@
   - 设置实例的编号，默认采用主机名和实例端口，建议使用主机IP、实例端口和服务名称 
 
 - **eureka.client.register-with-eureka**
-   - 是否将自身实例注册到注册服务器（true/false）
+   - 是否将自身实例注册到注册服务器（true/false），注册地址为自身应用指定的注册地址
 
 - **eureka.client.fetch-registry**
   - 是否从注册服务器获取注册信息（true/false）
