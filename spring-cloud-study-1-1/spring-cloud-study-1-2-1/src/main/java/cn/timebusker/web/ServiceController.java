@@ -23,12 +23,21 @@ public class ServiceController {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	private final static String serviceId = "service";
-
+	
+	/**
+	 * DiscoveryClient服务发现的核心实现
+	 * 
+	 * 能够通过服务的逻辑标识符提供位置信息(例如网络地址)以及其它与已注册至Eureka的服务实例相关的元数据。
+	 */
 	@Autowired
 	private DiscoveryClient discoveryClient;
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public Integer add(@RequestParam Integer a, @RequestParam Integer b) {
+		/**
+		 * 通过服务的 serviceId （对应着spring.application.name）检索服务
+		 * 返回的实例中包含实例相关的元数据信息
+		 */
 		List<ServiceInstance> instances = discoveryClient.getInstances(serviceId);
 		Integer r = a + b;
 		logger.info(JSON.toJSONString(instances));
