@@ -24,7 +24,7 @@ public class ServiceController {
 
 	private final static String serviceId = "service";
 
-	private final static String serviceIp = "1";
+	private final static String serviceIp = "2";
 
 	/**
 	 * DiscoveryClient服务发现的核心实现

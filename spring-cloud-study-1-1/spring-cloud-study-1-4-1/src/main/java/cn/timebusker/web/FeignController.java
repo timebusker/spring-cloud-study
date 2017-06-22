@@ -15,12 +15,14 @@ public class FeignController {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
+	private final static String serviceId = System.getProperty("server.port");
+	
 	@Autowired
 	ServiceInterface service;
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public Integer add(@RequestParam Integer a, @RequestParam Integer b) {
-		logger.info("传递进来的参数分别为\ta=" + a + "\tb=" + b);
+		logger.info("\t" + serviceId + "\t传递进来的参数分别为\ta=" + a + "\tb=" + b);
 		Integer r = service.add(a, b);
 		return r;
 	}

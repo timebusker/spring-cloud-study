@@ -48,6 +48,9 @@
 - **eureka.client.fetch-registry**
   - 是否从注册服务器获取注册信息（true/false）
 
+- **eureka.environment**
+  - 指定软件运行环境
+
 
 
 
