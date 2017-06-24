@@ -10,5 +10,13 @@
 	<artifactId>spring-cloud-study-2-2-1</artifactId>
 	<name>spring-cloud-study-2-2-1</name>
 	<url>http://maven.apache.org</url>
-	<description>spring-cloud配置仓库</description>
+	<description>spring-cloud-config-client</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+	</dependencies>
+	
 </project>

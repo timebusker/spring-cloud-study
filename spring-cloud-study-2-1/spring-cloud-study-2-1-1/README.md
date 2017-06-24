@@ -1,76 +1,66 @@
-### [单服务节点——基于一个简单的spring boot web项目实现](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-1-1/spring-cloud-study-1-1-1)
-- #### 引用依赖：作为注册中心，引用eureka-server依赖
-```
+###[Config Server 配置管理服务端](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-1-1/spring-cloud-study-2-1-1)
+
+- #### 构建Config Server:通过Spring Cloud构建一个Config Server，只需要三步：
+  - ##### 第一步：引入`spring-cloud-config-server`依赖，作为配置管理的服务端，引入服务端依赖
+    `
     <dependency>
-        <groupId>org.springframework.cloud</groupId>
-	    <artifactId>spring-cloud-starter-eureka-server</artifactId>
-    </dependency>
-```
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-config-server</artifactId>
+	</dependency>
+    `
 
-- #### 开注册服务器
-```
-	/**
-	 *
-	 *通过@EnableEurekaServer注解启动一个服务注册中心提供给其他应用进行对话
-	 */
-	@EnableEurekaServer
-	@SpringBootApplication
-	public class Application {
-		public static void main(String[] args) {
-			new SpringApplicationBuilder(Application.class).web(true).run(args);
-		}
-	}
-```
+   - ##### 第二步：创建Spring Boot的程序主类，并添加`@EnableConfigServer`注解，开启Config Server服务
+     `
+     @EnableConfigServer
+     @SpringBootApplication
+     public class Application {
+	     public static void main(String[] args) {
+		     new SpringApplicationBuilder(Application.class).web(true).run(args);
+	     }
+     }
+     `
 
-- #### eureka 核心配置
 
-```
+   - ##### 第三部：在`application.properties`配置服务信息以及git信息
+     `  
+     # 应用名称  
+     spring.application.name=config-server  
+     
+     ###########################################################################  
+     ########## git管理配置  
+     ###########################################################################  
+     # 配置git仓库位置
+     spring.cloud.config.server.git.uri=http://git.oschina.net/timebusker/spring--cloud-config-repo  
+     # 配置仓库路径下的相对搜索位置，可以配置多个  
+     spring.cloud.config.server.git.searchPaths=quick-cloud-config  
+     ## 如果是公共仓库可以不设置账户密码  
+     # 访问git仓库的用户名  
+     spring.cloud.config.server.git.username=***  
+     # 访问git仓库的用户密码  
+     spring.cloud.config.server.git.password=***  
+     
+     ## Spring Cloud Config本地存储配置的方式  
+     # Config Server会默认从应用的src/main/resource目录下检索配置文件   
+     # spring.profiles.active=native  
+     # 增加以下配置，指定配置文件的位置  
+     # spring.cloud.config.server.native.searchLocations=file:F:/properties/  
+     `
 
- ###############################################################  
- ########   eureka配置信息  
- ###############################################################  
- # 通过spring.application.name属性，我们可以指定微服务的名称后续在调用的时候只需要使用该名称就可以进行服务的访问。  
- spring.application.name=eureka-server  
- # eureka.instance.hostname= ${spring.cloud.client.ipAddress}  
- # eureka是默认使用hostname进行注册，可通过一下项自动获取注册服务IP或者直接通过eureka.instance.ip-address指定IP  
- # eureka.instance.prefer-ip-address=true  
- # eureka.instance.preferIpAddress=true  
- # 在eureka 服务端显示为IP   
- # 不配置，默认显示主机名  
- # eureka.instance.instance-id = ${spring.cloud.client.ipAddress}:${server.port}-${spring.application.name}  
- # 是否将eureka自身作为应用注册到eureka注册中心  
- # 是否注册到eureka  
- # eureka.client.register-with-eureka=false  
- # 为true时，可以启动，但报异常：Cannot execute request on any known server  
- # 是否从eureka获取注册信息  
- # eureka.client.fetch-registry=false  
- # 关闭自我保护  
- # eureka.server.enable-self-preservation=false  
- # 清理间隔（单位毫秒，默认是60*1000）：作为服务端清除down了的客户端  
- # eureka.server.eviction-interval-timer-in-ms=30000  
- # eureka服务器的地址（注意：地址最后面的 /eureka/ 这个是默认值）  
- # 如果有根目录，加上根目录  
- # eureka.client.serviceUrl.defaultZone=http://127.0.0.1:${server.port}/${server.context-path}/eureka/  
- eureka.client.serviceUrl.defaultZone=http://eureka.timebusker.cn:82/eureka/  
- 
+- #### 服务端验证
+  在[Config Repostory 配置仓库](http://git.oschina.net/timebusker/spring--cloud-config-repo)下的***quick-cloud-config***，编辑以下几个配置文件。  
+  - application.properties   
+  - dubbo.properties  
+  - quickstart-dev.properties  
+  - quickstart-prod.properties  
+  - quickstart-test.properties  
+  同时，为了测试版本控制，我们创建两个master和develop两个分支，并且两个分支的编辑内容不相同。  
+  通过浏览器直接来访问到配置内容，具体的URL与配置文件的映射关系如下：
+     + /{application}/{profile}/{label}  
+     + /{application}-{profile}.yml  
+     + /{label}/{application}-{profile}.yml  
+     + /{application}-{profile}.properties  
+     + /{label}/{application}-{profile}.properties  
+       其中，`{application}-{profile}.properties`对应的配置文件，{label}对应git上不同的分支，默认为master。
 
- # 注意：  
- # EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN  
- # THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.  
- # 分析：是由于Eureka进入了保护模式。  
- # 在保护模式下，Eureka Server将会尝试保护其服务注册表中的信息，暂时不会注销服务注册表中的服务。  
- # eureka.server.enable-self-preservation=false  
-
- # 在同一个主机上作伪集群时，不应该开启将IP注册到注册中心和需要将各个服务节点交叉注册，否则服务节点一直处于不可用的服务分片   
- #（unavailable-replicas）节点上(以下三个配置均采用默认配置即可)
- # eureka.instance.prefer-ip-address
- # eureka.instance.preferIpAddress
- # eureka.client.register-with-eureka
-
-```
-### 相关文章
-
-- [Spring Cloud构建微服务架构（一）服务注册与发现](http://blog.didispace.com/springcloud1/)
-- [Eureka服务注册过程详解之IpAddress](http://www.tuicool.com/articles/ueYbUnJ)	
-- [spring cloud:eureka服务发现](http://blog.csdn.net/zhuchuangang/article/details/51202307)	
-- [spring cloud eureka 参数配置](http://www.jianshu.com/p/e2bebfb0d075) 
+- #### 总结 
+   + Spring Cloud Config基于git版本管理时，当我们修改配置文件推送到git服务器后，Config Server 配置管理服务端的配置也将及时被更新，但是微服务端的配置信息不会被刷新。
