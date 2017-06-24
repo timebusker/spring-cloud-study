@@ -7,11 +7,11 @@
    +  配置服务器提供远程和本地化文件系统的存储方式两种方式管理配置内容，默认采用git来存储配置信息，有助于对环境配置进行版本管理，并且可以通过git客户端工具来方便的管理和访问配置内容。
 
 - #### [Spring Cloud Config简单使用](#)  
-   + [Config Server 配置管理服务端](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-1-1/spring-cloud-study-2-1-1)  
+   + [Config Server 配置管理服务端](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-2-1/spring-cloud-study-2-1-1)  
    
    + [Config Repostory 配置仓库](http://git.oschina.net/timebusker/spring--cloud-config-repo)  
    
-   + [Config 微服务端](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-1-1/spring-cloud-study-2-1-1)  
+   + [Config 微服务端](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-2-1/spring-cloud-study-2-1-1)  
 
 
 - #### [配置管理之客户端自动刷新]()
