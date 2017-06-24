@@ -1,16 +1,16 @@
-###[Config Server 配置管理服务端](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-1-1/spring-cloud-study-2-1-1)
+### [Config Server 配置管理服务端](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-2-1/spring-cloud-study-2-1-1)
 
 - #### 构建Config Server:通过Spring Cloud构建一个Config Server，只需要三步：
   - ##### 第一步：引入`spring-cloud-config-server`依赖，作为配置管理的服务端，引入服务端依赖
-    `
+    ```
     <dependency>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-config-server</artifactId>
 	</dependency>
-    `
+    ```
 
    - ##### 第二步：创建Spring Boot的程序主类，并添加`@EnableConfigServer`注解，开启Config Server服务
-     `
+     ```
      @EnableConfigServer
      @SpringBootApplication
      public class Application {
@@ -18,11 +18,11 @@
 		     new SpringApplicationBuilder(Application.class).web(true).run(args);
 	     }
      }
-     `
+     ```
 
 
    - ##### 第三部：在`application.properties`配置服务信息以及git信息
-     `  
+     ```  
      # 应用名称  
      spring.application.name=config-server  
      
@@ -44,7 +44,7 @@
      # spring.profiles.active=native  
      # 增加以下配置，指定配置文件的位置  
      # spring.cloud.config.server.native.searchLocations=file:F:/properties/  
-     `
+     ```
 
 - #### 服务端验证
   在[Config Repostory 配置仓库](http://git.oschina.net/timebusker/spring--cloud-config-repo)下的***quick-cloud-config***，编辑以下几个配置文件。  
