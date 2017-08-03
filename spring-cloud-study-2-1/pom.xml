@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>cn.timebusker</groupId>
@@ -9,10 +10,11 @@
 	<artifactId>spring-cloud-study-2-1</artifactId>
 	<packaging>pom</packaging>
 	<name>spring-cloud-study-2-1</name>
-	<description>spring cloud 分布式配置中�?</description>
-	
-  <modules>
-    <module>spring-cloud-study-2-1-1</module>
-    <module>spring-cloud-study-2-2-1</module>
-  </modules>
+	<description>spring cloud 分布式配置中�?</description>
+
+	<modules>
+		<module>spring-cloud-study-2-1-1</module>
+		<module>spring-cloud-study-2-2-1</module>
+		<module>spring-cloud-study-2-2-2</module>
+	</modules>
 </project>

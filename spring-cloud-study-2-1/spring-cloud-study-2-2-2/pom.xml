@@ -7,16 +7,19 @@
 		<artifactId>spring-cloud-study-2-1</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>spring-cloud-study-2-2-1</artifactId>
-	<name>spring-cloud-study-2-2-1</name>
+	<artifactId>spring-cloud-study-2-2-2</artifactId>
+	<name>spring-cloud-study-2-2-2</name>
 	<url>http://maven.apache.org</url>
-	<description>spring-cloud-config-client 简单使用</description>
+	<description>spring-cloud-config-client 配置刷新</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 	</dependencies>
-	
 </project>

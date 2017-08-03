@@ -30,6 +30,9 @@
      ########## git管理配置  
      ###########################################################################  
      # 配置git仓库位置
+     # 占位符配置URI：{application}、{profile}、{label}这些占位符除了用于标识配置文件的规则之外，
+     # 还可以用于ConfigServer 中对 Git 仓库地址的URI配置
+     # spring.cloud.config.server.git.uri=http://git.net/timebusker/config-repo/{application}
      spring.cloud.config.server.git.uri=http://git.oschina.net/timebusker/spring--cloud-config-repo  
      # 配置仓库路径下的相对搜索位置，可以配置多个  
      spring.cloud.config.server.git.searchPaths=quick-cloud-config  
@@ -64,3 +67,5 @@
 
 - #### 总结 
    + Spring Cloud Config基于git版本管理时，当我们修改配置文件推送到git服务器后，Config Server 配置管理服务端的配置也将及时被更新，但是微服务端的配置信息不会被刷新。
+   + 拉取应用配置时，当指定读取分支的配置文件`{application}-{profile}`时，也会自动加载该分支下的`{application}`配置文件。
+ 

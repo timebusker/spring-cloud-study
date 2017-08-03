@@ -14,5 +14,5 @@ public class HelloController {
 		System.out.println("Hello Spring-Boot");
 		return "Hello spring-boot-1-QuickStart！！！";
 	}
-	
+
 }
