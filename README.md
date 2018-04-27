@@ -1,3 +1,16 @@
+
+-----------------
+
+<h2 align="center">:heart::heart::heart:如果觉得我的文章或者代码对您有帮助,可以请我喝杯咖啡哦:heart::heart::heart:</h2>
+<div  align="center">    
+  <img src="https://raw.githubusercontent.com/timebusker/timebusker.github.io/master/mine/wxpay.png?raw=true" width = "200" height = "200" alt="WXPAY" align=center />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/timebusker/timebusker.github.io/master/mine/alipay.png?raw=true" width = "200" height = "200" alt="ALIPAY" align=center />
+</div>  
+<h2 align="center">:smile::smile::smile:您的支持将鼓励我继续创作...谢谢!:smile::smile::smile:</h2>
+
+-----------------
+
 - ### 关于微服务架构
    + “微服务 ”一词源于 Martin Fowler 的名为 Microservices 的博文， 可以在他的官方博客
      上找到：[Microservices](http://mar巨nfowler.com/articles/microservices.html)。
@@ -122,5 +135,9 @@
 
 
 #### [spring-cloud-study-2-1..........................................分布式配置中心](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-2-1/)
+
+#### [spring-cloud-study-3-1..........................................消息总线](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-3-1/)
+
+#### [spring-cloud-study-4-1..........................................服务网关](https://github.com/timebusker/spring-cloud-study/tree/master/spring-cloud-study-4-1/)
 
 ----
